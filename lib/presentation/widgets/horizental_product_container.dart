@@ -18,9 +18,8 @@ class HorizentalProductContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          EdgeInsets.symmetric(vertical: Defaultvalue.defaultFontsize / 1.5),
-      padding: EdgeInsets.all(Defaultvalue.defaultFontsize / 1.5),
+      margin: EdgeInsets.symmetric(vertical: Defaultvalue.defaultFontsize / 4),
+      padding: EdgeInsets.all(Defaultvalue.defaultFontsize / 4),
       width: MediaQuery.of(context).size.width,
       child: Column(children: [
         Padding(
@@ -48,9 +47,9 @@ class HorizentalProductContainer extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: Defaultvalue.defaultFontsize),
+        SizedBox(height: Defaultvalue.defaultFontsize / 4),
         Container(
-          height: MediaQuery.of(context).size.height * 0.45,
+          height: MediaQuery.of(context).size.height * 0.33,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,

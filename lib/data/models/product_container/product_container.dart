@@ -11,9 +11,12 @@ class ProductContainer {
   final List<Product> productList;
   final int layoutType;
   ContianerType contianerType;
+  final int layoutindex;
+
   EnumConvertor enumConvertor = EnumConvertor();
 
   ProductContainer({
+    @required this.layoutindex,
     @required this.layoutType,
     @required this.backgroundColor,
     @required this.containerTitle,
@@ -30,7 +33,9 @@ class ProductContainer {
         o.backgroundColor == backgroundColor &&
         o.containerTitle == containerTitle &&
         listEquals(o.productList, productList) &&
-        o.contianerType == contianerType;
+        o.layoutType == layoutType &&
+        o.contianerType == contianerType &&
+        o.layoutindex == layoutindex;
   }
 
   @override
@@ -38,6 +43,8 @@ class ProductContainer {
     return backgroundColor.hashCode ^
         containerTitle.hashCode ^
         productList.hashCode ^
-        contianerType.hashCode;
+        layoutType.hashCode ^
+        contianerType.hashCode ^
+        layoutindex.hashCode;
   }
 }

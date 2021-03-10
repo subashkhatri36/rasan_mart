@@ -2,7 +2,13 @@ enum EventType {
   LogIn,
   Register,
 }
-enum ContianerType { HorizentalLayout, GridviewLayout }
+enum ContianerType {
+  HorizentalLayout,
+  GridviewLayout,
+  BannerLayout,
+  SearchBar,
+  Category
+}
 enum DiscountType {
   Flat,
   Percentage,

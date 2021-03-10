@@ -40,8 +40,8 @@ class CounterBtn extends StatelessWidget {
                   topLeft: Radius.circular(40),
                   bottomLeft: Radius.circular(40)),
         ),
-        height: Defaultvalue.defaultFontsize + 5,
-        width: Defaultvalue.defaultFontsize * 2,
+        height: Defaultvalue.defaultFontsize + 2,
+        width: Defaultvalue.defaultFontsize * 1.5,
         child: Icon(
           counterIncrement() ? Icons.add : Icons.remove,
           color: Colors.black54,

@@ -12,19 +12,20 @@ class TotalProductPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           'Price (NRs.) ',
           style: TextStyle(
-              fontSize: Defaultvalue.defaultFontsize,
+              fontSize: Defaultvalue.defaultFontsize - 4,
               fontWeight: FontWeight.bold,
               color: Colors.black45),
         ),
+        SizedBox(width: Defaultvalue.defaultFontsize / 3),
         Text(
           totalprice.toString(),
           style: TextStyle(
-              fontSize: Defaultvalue.defaultFontsize,
+              fontSize: Defaultvalue.defaultFontsize - 4,
               fontWeight: FontWeight.bold,
               color: Colors.black45),
         ),

@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:rasan_mart/core/constant/defaultvalue.dart';
+
+BoxDecoration buildBoxDecoration({Color bgcolor, bool round, bool shadow}) {
+  return BoxDecoration(
+    color: bgcolor != null ? bgcolor : Colors.transparent,
+    boxShadow: shadow
+        ? [
+            BoxShadow(
+                offset: Offset(0.0, 0.1), blurRadius: 1.0, spreadRadius: 0.1)
+          ]
+        : [],
+    borderRadius: round
+        ? BorderRadius.circular(Defaultvalue.defaultFontsize / 2)
+        : BorderRadius.circular(0),
+    border: Border.all(
+      width: 1,
+      color: Colors.black38,
+      style: BorderStyle.solid,
+    ),
+  );
+}

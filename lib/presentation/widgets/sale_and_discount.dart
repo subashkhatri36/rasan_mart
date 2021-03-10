@@ -19,18 +19,18 @@ class SalesAndDiscount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: isSaleType
-          ? EdgeInsets.only(left: Defaultvalue.defaultFontsize / 4)
-          : EdgeInsets.only(left: Defaultvalue.defaultPadding * 5),
-      height: isSaleType ? 44 : 46,
-      width: 47,
+          ? EdgeInsets.zero
+          : EdgeInsets.only(left: MediaQuery.of(context).size.width * .2),
+      height: isSaleType ? 35 : 35,
+      width: 35,
       decoration: BoxDecoration(
           color: isSaleType
               ? AppTheme.lightSalesolor
               : Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.circular(Defaultvalue.defaultPadding)),
       padding: isSaleType
-          ? EdgeInsets.all(Defaultvalue.defaultFontsize - 4)
-          : EdgeInsets.all(Defaultvalue.defaultFontsize / 2),
+          ? EdgeInsets.all(Defaultvalue.defaultFontsize - 6)
+          : EdgeInsets.all(Defaultvalue.defaultFontsize / 3),
       alignment: Alignment.center,
       child: Text(
         isSaleType
@@ -42,7 +42,7 @@ class SalesAndDiscount extends StatelessWidget {
         style: TextStyle(
             color: Theme.of(context).primaryColor,
             fontWeight: FontWeight.bold,
-            fontSize: Defaultvalue.defaultFontsize - 3),
+            fontSize: Defaultvalue.defaultFontsize - 5),
       ),
     );
   }
