@@ -1,20 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:rasan_mart/core/components/Loadingdata.dart';
 import 'package:rasan_mart/core/constant/defaultvalue.dart';
 import 'package:rasan_mart/core/constant/strings.dart';
+import 'package:rasan_mart/core/enum/enum.dart';
 import 'package:rasan_mart/data/models/product/product_model.dart';
 import 'package:rasan_mart/presentation/widgets/product_widget.dart';
 
-class HorizentalProductContainer extends StatelessWidget {
+class HorizentalProductContainer extends StatefulWidget {
   final String containerTitle;
-  final List<Product> productList;
+  final List<String> productIdList;
   final Color backgroundColor;
 
   const HorizentalProductContainer(
       {Key key,
       @required this.containerTitle,
-      @required this.productList,
+      @required this.productIdList,
       @required this.backgroundColor})
       : super(key: key);
+
+  @override
+  _HorizentalProductContainerState createState() =>
+      _HorizentalProductContainerState();
+}
+
+class _HorizentalProductContainerState
+    extends State<HorizentalProductContainer> {
+  //List<Product> newProduct = [];
+  int a = 0;
+
+  Future<List<Product>> loadingdata() async {
+    return await loaddata(id: widget.productIdList);
+  }
+
+  @override
+  void initState() {
+    //initalize product
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,8 +53,10 @@ class HorizentalProductContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                containerTitle,
-                style: TextStyle(fontSize: Defaultvalue.defaultFontsize * 1.5),
+                widget.containerTitle,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: Defaultvalue.defaultFontsize * 1.5),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -50,14 +76,23 @@ class HorizentalProductContainer extends StatelessWidget {
         SizedBox(height: Defaultvalue.defaultFontsize / 4),
         Container(
           height: MediaQuery.of(context).size.height * 0.33,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: productList.length,
-              itemBuilder: (context, index) {
-                Product product = productList[index];
-                return ProductWidget(product: product);
-              }),
+          child: FutureBuilder(
+            builder: (context, snapshot) {
+              return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: snapshot.data?.length ?? 0,
+                  itemBuilder: (context, index) {
+                    Product oneproduct = snapshot.data[index];
+
+                    return ProductWidget(
+                      product: oneproduct,
+                      contianerType: ContianerType.HorizentalLayout,
+                    );
+                  });
+            },
+            future: loadingdata(),
+          ),
         )
       ]),
     );

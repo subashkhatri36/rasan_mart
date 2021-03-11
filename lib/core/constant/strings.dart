@@ -7,4 +7,5 @@ class Strings {
   static String get btnSignuptext => 'Register';
   static String get searchMessage => 'What are you looking for?';
   static String get btnview => 'View All';
+  static String get productDescription => 'Product Description';
 }

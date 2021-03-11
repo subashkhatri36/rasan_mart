@@ -4,9 +4,11 @@ import 'package:rasan_mart/core/enum/enum.dart';
 
 class CounterBtn extends StatelessWidget {
   final CounterType counterType;
+  final bool isdetailpage;
   const CounterBtn({
     Key key,
     @required this.counterType,
+    @required this.isdetailpage,
   }) : super(key: key);
   bool counterIncrement() {
     switch (this.counterType) {
@@ -31,7 +33,9 @@ class CounterBtn extends StatelessWidget {
             color: Colors.black38,
             style: BorderStyle.solid,
           ),
-          color: Theme.of(context).accentColor,
+          color: isdetailpage
+              ? Theme.of(context).backgroundColor
+              : Theme.of(context).accentColor,
           borderRadius: counterIncrement()
               ? BorderRadius.only(
                   topRight: Radius.circular(40),
@@ -40,12 +44,18 @@ class CounterBtn extends StatelessWidget {
                   topLeft: Radius.circular(40),
                   bottomLeft: Radius.circular(40)),
         ),
-        height: Defaultvalue.defaultFontsize + 2,
-        width: Defaultvalue.defaultFontsize * 1.5,
+        height: isdetailpage
+            ? Defaultvalue.defaultFontsize * 2
+            : Defaultvalue.defaultFontsize + 2,
+        width: isdetailpage
+            ? Defaultvalue.defaultFontsize * 3
+            : Defaultvalue.defaultFontsize * 1.5,
         child: Icon(
           counterIncrement() ? Icons.add : Icons.remove,
-          color: Colors.black54,
-          size: Defaultvalue.defaultFontsize,
+          color: isdetailpage ? Theme.of(context).primaryColor : Colors.black54,
+          size: isdetailpage
+              ? Defaultvalue.defaultFontsize + 5
+              : Defaultvalue.defaultFontsize,
         ),
       ),
     );

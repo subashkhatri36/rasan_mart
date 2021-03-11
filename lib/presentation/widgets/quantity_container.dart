@@ -7,9 +7,11 @@ class QuantityContainer extends StatelessWidget {
   const QuantityContainer({
     Key key,
     @required this.qty,
+    @required this.isdetailpage,
   }) : super(key: key);
 
   final int qty;
+  final bool isdetailpage;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,9 @@ class QuantityContainer extends StatelessWidget {
             'Qty',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: Defaultvalue.defaultFontsize - 2),
+                fontSize: isdetailpage
+                    ? Defaultvalue.defaultFontsize * 1.5
+                    : Defaultvalue.defaultFontsize - 2),
           ),
           SizedBox(width: Defaultvalue.defaultFontsize / 2),
           Container(
@@ -31,11 +35,16 @@ class QuantityContainer extends StatelessWidget {
               children: [
                 CounterBtn(
                   counterType: CounterType.Decreament,
+                  isdetailpage: isdetailpage,
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                      right: Defaultvalue.defaultPadding / 3,
-                      left: Defaultvalue.defaultPadding / 3),
+                      right: isdetailpage
+                          ? Defaultvalue.defaultPadding
+                          : Defaultvalue.defaultPadding / 3,
+                      left: isdetailpage
+                          ? Defaultvalue.defaultPadding
+                          : Defaultvalue.defaultPadding / 3),
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1,
@@ -45,12 +54,15 @@ class QuantityContainer extends StatelessWidget {
                   ),
                   child: Text(
                     '$qty',
-                    style:
-                        TextStyle(fontSize: Defaultvalue.defaultFontsize - 2),
+                    style: TextStyle(
+                        fontSize: isdetailpage
+                            ? Defaultvalue.defaultFontsize * 1.5
+                            : Defaultvalue.defaultFontsize - 2),
                   ),
                 ),
                 CounterBtn(
                   counterType: CounterType.Increament,
+                  isdetailpage: isdetailpage,
                 ),
 
                 //Now Price

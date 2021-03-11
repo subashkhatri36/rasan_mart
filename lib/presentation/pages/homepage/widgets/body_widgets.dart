@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:rasan_mart/core/enum/enum.dart';
 import 'package:rasan_mart/data/models/Scroll_banner/scroll_banner_model.dart';
 import 'package:rasan_mart/data/models/product/product_model.dart';
-import 'package:rasan_mart/data/models/product_container/product_container.dart';
+import 'package:rasan_mart/data/models/product/product_container.dart';
+import 'package:rasan_mart/presentation/widgets/Gridview_product_container.dart';
 import 'package:rasan_mart/presentation/widgets/Scroll_banner.dart';
 import 'package:rasan_mart/presentation/widgets/Gridview_categories.dart';
 import 'package:rasan_mart/presentation/widgets/horizental_product_container.dart';
@@ -58,12 +59,24 @@ class _HomeBodyState extends State<HomeBody> {
                             widget.productContainer[index].backgroundColor;
                         String title =
                             widget.productContainer[index].containerTitle;
-                        List<Product> plist =
-                            widget.productContainer[index].productList;
+                        List<String> plist =
+                            widget.productContainer[index].productIdList;
                         return HorizentalProductContainer(
                           containerTitle: title,
                           backgroundColor: color,
-                          productList: plist,
+                          productIdList: plist,
+                        );
+                      case ContianerType.GridviewLayout:
+                        Color color =
+                            widget.productContainer[index].backgroundColor;
+                        String title =
+                            widget.productContainer[index].containerTitle;
+                        List<String> plist =
+                            widget.productContainer[index].productIdList;
+                        return GridViewProduct(
+                          containerTitle: title,
+                          backgroundColor: color,
+                          productIdList: plist,
                         );
 
                       case ContianerType.BannerLayout:
@@ -76,34 +89,6 @@ class _HomeBodyState extends State<HomeBody> {
                         return null;
                         break;
                     }
-                    /*
-
-                    if (widget.productContainer[index].layoutType == 0)
-                      return SearchBarIcon();
-
-                    bool bannerContainer =
-                        widget.productContainer[index].bannerContainer;
-                    if (bannerContainer) {
-                      //Container type is banner
-
-                      List<ScrollBanner> banner =
-                          widget.productContainer[index].scrollBanner;
-                      return BannerScrollImage(banner: banner);
-                    } else {
-                      //container type is not banner
-                      Color color =
-                          widget.productContainer[index].backgroundColor;
-                      String title =
-                          widget.productContainer[index].containerTitle;
-                      List<Product> plist =
-                          widget.productContainer[index].productList;
-                      return HorizentalProductContainer(
-                        containerTitle: title,
-                        backgroundColor: color,
-                        productList: plist,
-                      );
-                    }
-                    */
                   }),
             ),
           ),

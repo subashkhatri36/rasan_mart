@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rasan_mart/core/constant/defaultvalue.dart';
 
-BoxDecoration buildBoxDecoration({Color bgcolor, bool round, bool shadow}) {
+BoxDecoration buildBoxDecoration(
+    {@required Color bgcolor, @required bool round, @required bool shadow}) {
   return BoxDecoration(
     color: bgcolor != null ? bgcolor : Colors.transparent,
     boxShadow: shadow

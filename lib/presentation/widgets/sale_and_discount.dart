@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rasan_mart/core/components/discount.dart';
 import 'package:rasan_mart/core/constant/defaultvalue.dart';
 import 'package:rasan_mart/core/enum/enum.dart';
 import 'package:rasan_mart/core/themes/app_theme.dart';
@@ -6,13 +7,15 @@ import 'package:rasan_mart/core/themes/app_theme.dart';
 class SalesAndDiscount extends StatelessWidget {
   final bool isSaleType;
   final double discount;
-  final DiscountType discountType;
+  final String discountType;
+  final bool isgridview;
 
   const SalesAndDiscount({
     Key key,
     @required this.isSaleType,
     @required this.discount,
     @required this.discountType,
+    @required this.isgridview,
   }) : super(key: key);
 
   @override
@@ -20,7 +23,9 @@ class SalesAndDiscount extends StatelessWidget {
     return Container(
       margin: isSaleType
           ? EdgeInsets.zero
-          : EdgeInsets.only(left: MediaQuery.of(context).size.width * .2),
+          : isgridview
+              ? EdgeInsets.only(left: MediaQuery.of(context).size.width * .28)
+              : EdgeInsets.only(left: MediaQuery.of(context).size.width * .23),
       height: isSaleType ? 35 : 35,
       width: 35,
       decoration: BoxDecoration(
@@ -35,9 +40,9 @@ class SalesAndDiscount extends StatelessWidget {
       child: Text(
         isSaleType
             ? 'Sale'
-            : discountType == DiscountType.Flat
-                ? discount.toString() + ' F'
-                : discount.toString() + '%',
+            : discountString(
+                discountType: discountType,
+                discountAmount: discount.toString()),
         textAlign: TextAlign.center,
         style: TextStyle(
             color: Theme.of(context).primaryColor,
