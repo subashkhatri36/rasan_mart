@@ -14,6 +14,8 @@ class Product {
   final String productDiscountType;
   final bool productOnDiscount;
   final String backgroundColor;
+  int qty;
+  double price;
 
   Product({
     @required this.productId,
@@ -27,7 +29,13 @@ class Product {
     @required this.productDiscountType,
     @required this.productName,
     @required this.backgroundColor,
+    int qty,
+    double price,
   });
+
+  //getter abd setter
+  int get qetQty => this.qty;
+  setQty(int qty) => this.qty = qty;
 
   Map<String, dynamic> toMap() {
     return {

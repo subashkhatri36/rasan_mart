@@ -34,6 +34,7 @@ class ProductDetailContainer extends StatelessWidget {
                           children: [
                             Container(
                               padding: EdgeInsets.only(
+                                  left: Defaultvalue.defaultFontsize / 5,
                                   top: Defaultvalue.defaultFontsize / 2),
                               child: Icon(
                                 Icons.circle,
@@ -45,7 +46,7 @@ class ProductDetailContainer extends StatelessWidget {
                             Expanded(
                                 child: Text(
                               e,
-                              textAlign: TextAlign.justify,
+                              textAlign: TextAlign.left,
                             ))
                           ]),
                       SizedBox(height: Defaultvalue.defaultFontsize),

@@ -10,7 +10,7 @@ import 'package:rasan_mart/presentation/widgets/amount_box.dart';
 import 'package:rasan_mart/presentation/widgets/cart_and_quickview_btn.dart';
 import 'package:rasan_mart/presentation/widgets/horizental_product_container.dart';
 import 'package:rasan_mart/presentation/widgets/product_detail_container.dart';
-import 'package:rasan_mart/presentation/widgets/quantity_container.dart';
+import 'package:rasan_mart/presentation/widgets/quantity_and_totalprice_container.dart';
 import 'package:rasan_mart/presentation/widgets/total_product_price.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -79,13 +79,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                 SizedBox(height: 10),
                 ProductDetailContainer(
                     productDetail: _product.productDescription),
-                QuantityContainer(
-                  qty: 1,
-                  isdetailpage: true,
-                ),
-                TotalProductPrice(
-                  totalprice: _product.productPrice,
-                  qty: 1,
+                QuantityAndTotalpriceContainer(
+                  product: _product,
                   isdetailpage: true,
                 ),
                 SizedBox(height: 10),

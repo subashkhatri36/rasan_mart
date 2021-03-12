@@ -119,7 +119,6 @@ List<ProductContainer> get productContainerdata => [
         productIdList: ['01', '03', '04'],
       ),
 
-/*
       //for gridview product
       new ProductContainer(
         layoutindex: 4,
@@ -136,8 +135,6 @@ List<ProductContainer> get productContainerdata => [
         containerTitle: 'Hori Products',
         productIdList: ['04', '02', '01'],
       ),
-
-      */
     ];
 
 List<ScrollBanner> scrollbanner = [

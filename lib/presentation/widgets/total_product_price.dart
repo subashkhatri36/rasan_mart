@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:rasan_mart/core/constant/defaultvalue.dart';
 
 class TotalProductPrice extends StatelessWidget {
-  const TotalProductPrice(
-      {Key key,
-      @required this.totalprice,
-      @required this.isdetailpage,
-      @required this.qty})
-      : super(key: key);
+  const TotalProductPrice({
+    Key key,
+    @required this.totalprice,
+    @required this.isdetailpage,
+  }) : super(key: key);
 
   final double totalprice;
-  final int qty;
   final bool isdetailpage;
 
   @override
@@ -29,7 +27,7 @@ class TotalProductPrice extends StatelessWidget {
         ),
         SizedBox(width: Defaultvalue.defaultFontsize / 3),
         Text(
-          calculateTotal(qty, totalprice),
+          totalprice.toString(),
           style: TextStyle(
               fontSize: isdetailpage
                   ? Defaultvalue.defaultFontsize * 1.5
@@ -40,9 +38,4 @@ class TotalProductPrice extends StatelessWidget {
       ],
     );
   }
-}
-
-String calculateTotal(int qty, double total) {
-  double result = qty * total;
-  return result.toString();
 }

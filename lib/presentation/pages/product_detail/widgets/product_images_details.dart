@@ -21,11 +21,10 @@ class _ProductImageDetailsState extends State<ProductImageDetails> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-          alignment: Alignment.topLeft,
+          alignment: Alignment.center,
           margin: EdgeInsets.only(top: Defaultvalue.defaultFontsize),
           padding: EdgeInsets.all(Defaultvalue.defaultFontsize) / 2,
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          child: Column(children: [
             Hero(
               tag: widget.product.productId,
               key: ValueKey(widget.product.productId),
@@ -37,6 +36,7 @@ class _ProductImageDetailsState extends State<ProductImageDetails> {
             ),
             SizedBox(height: 10),
             Container(
+              alignment: Alignment.centerLeft,
               height: 80,
               child: ListView(
                 scrollDirection: Axis.horizontal,

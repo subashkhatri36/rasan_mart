@@ -8,9 +8,8 @@ import 'package:rasan_mart/core/enum/enum.dart';
 import 'package:rasan_mart/data/models/product/product_model.dart';
 import 'package:rasan_mart/presentation/widgets/amount_box.dart';
 import 'package:rasan_mart/presentation/widgets/cart_and_quickview_btn.dart';
-import 'package:rasan_mart/presentation/widgets/quantity_container.dart';
+import 'package:rasan_mart/presentation/widgets/quantity_and_totalprice_container.dart';
 import 'package:rasan_mart/presentation/widgets/sale_and_discount.dart';
-import 'package:rasan_mart/presentation/widgets/total_product_price.dart';
 
 class ProductWidget extends StatefulWidget {
   final ContianerType contianerType;
@@ -52,6 +51,7 @@ class _ProductWidgetState extends State<ProductWidget> {
             children: [
               GestureDetector(
                 onTap: () {
+                  // Navigator.of(context).push(route)
                   Navigator.of(context)
                       .pushNamed('/productdetail', arguments: widget.product);
                 },
@@ -60,7 +60,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                   padding:
                       EdgeInsets.only(bottom: Defaultvalue.defaultFontsize / 6),
                   child: Hero(
-                    tag: widget.product.productId,
+                    tag: new Text(widget.product.productId),
                     child: Image.network(
                       widget.product.productImages[0],
                       fit: BoxFit.fitHeight,
@@ -84,13 +84,8 @@ class _ProductWidgetState extends State<ProductWidget> {
                 product: widget.product,
                 isdetailpage: false,
               ),
-              QuantityContainer(
-                qty: qty,
-                isdetailpage: false,
-              ),
-              TotalProductPrice(
-                totalprice: widget.product.productPrice,
-                qty: 1,
+              QuantityAndTotalpriceContainer(
+                product: widget.product,
                 isdetailpage: false,
               ),
               SizedBox(height: Defaultvalue.defaultFontsize),

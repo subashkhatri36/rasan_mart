@@ -37,7 +37,7 @@ class AppRouter {
         );
         break;
       default:
-        throw const RouteException('Route not found!');
+        throw const RouteException('404 Error !');
     }
   }
 }
